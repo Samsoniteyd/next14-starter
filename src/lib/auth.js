@@ -1,10 +1,13 @@
+
+
 import NextAuth from "next-auth";
 import Github from "next-auth/providers/github";
 import CredentialsProvider  from "next-auth/providers/credentials";
 import { connectDb } from "./utils";
 import { User } from "./models";
-import bcrypt from "bcryptjs"
+import bcrypt from "bcryptjs";
 import { authConfig } from "./auth.config";
+
 
 const login = async (credentials) => {
     try {

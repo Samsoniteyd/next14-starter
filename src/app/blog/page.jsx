@@ -1,10 +1,10 @@
 import PostCard from "@/components/postCard/postCard";
 import styles from "./blog.module.css"
-import { getPosts } from "@/lib/data";
+// import { getPosts } from "@/lib/data";
 
 // FETCH DATA WITH AN API
 const getData = async () => {
-  const res = await fetch("http://localhost:3000/api/blog", {cache:"no-store"})
+  const res = await fetch("http://localhost:3000/api/blog", {next:{revalidate:3600}})
 
   if (!res.ok){
     throw new Error("something went wrong")
@@ -38,6 +38,6 @@ const BlogPage = async () => {
       ))} 
     </div>
   )
-}
+};
 
-export default BlogPage
+export default BlogPage;
